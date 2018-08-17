@@ -1,16 +1,14 @@
-import { Inject } from '@nestjs/common';
-import { Query, Resolver } from '@nestjs/graphql';
+import { Inject } from "@nestjs/common";
+import { Query, Resolver } from "@nestjs/graphql";
 
-import { AppService } from './app.service';
+import { AppService } from "./app.service";
 
 @Resolver()
 export class AppResolver {
-    constructor(
-        @Inject(AppService) private readonly appService: AppService,
-    ) { }
+  constructor(@Inject(AppService) private readonly appService: AppService) {}
 
-    @Query('root')
-    async root(): Promise<string> {
-        return this.appService.root();
-    }
+  @Query("root")
+  async root() {
+    return this.appService.root();
+  }
 }
